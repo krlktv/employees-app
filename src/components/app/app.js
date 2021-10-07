@@ -6,34 +6,15 @@ import EmployeesAddForm from '../employees-add-form/employees-add-form';
 
 import './app.css';
 
-function WhoAmI({ name, surname, link }) {
-	return (
-		<div>
-			<h1>
-				My name is {name()}, surname - {surname}
-			</h1>
-			<a href={link}>My profile</a>
-		</div>
-	);
-}
-
 function App() {
+	const data = [
+		{ name: 'Maureen Byrne', salary: 800, increase: false, id: 1 },
+		{ name: 'Isadora Edwards', salary: 3000, increase: true, id: 2 },
+		{ name: 'Harlee Nieves', salary: 5000, increase: false, id: 3 },
+	];
+
 	return (
 		<div className="app">
-			<WhoAmI
-				name={() => {
-					return 'John';
-				}}
-				surname="Smith"
-				link="facebook.com"
-			/>
-			<WhoAmI
-				name={() => {
-					return 'Alex';
-				}}
-				surname="Shepard"
-				link="vk.com"
-			/>
 			<AppInfo />
 
 			<div className="search-panel">
@@ -41,7 +22,7 @@ function App() {
 				<AppFilter />
 			</div>
 
-			<EmployeesList />
+			<EmployeesList data={data} />
 			<EmployeesAddForm />
 		</div>
 	);
